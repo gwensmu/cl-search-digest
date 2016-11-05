@@ -1,0 +1,6 @@
+@listings.each do |listing|
+  p listing.timestamp
+  h4 listing.title
+  a listing.url
+  p listing.description
+end
