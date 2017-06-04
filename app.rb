@@ -3,8 +3,9 @@ require "sinatra/reloader"
 require "markaby"
 require "json"
 require "logger"
+require "yaml"
 
-require_relative "app/listing"
+require_relative "lib/loom_search"
 
 configure do
   set :views, "#{File.dirname(__FILE__)}/views"
@@ -19,6 +20,7 @@ end
 set :show_exceptions, false
 
 get "/" do
-  @listings = LoomSearch.get_all_nearby
-  markaby :index
+  search = LoomSearch.new(YAML.load(File.open("config/config.yml", "r")))
+  @listings = search.get_all_nearby
+  erb :index
 end

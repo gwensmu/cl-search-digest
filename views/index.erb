@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+
+  <body>
+    <div id="container" style="width:600px;margin:10px;">
+      <h3> <%= @listings.count %>  Weaving Posts Around Chicago Right Now </h3>
+      <% for @listing in @listings %>
+        <div>
+          <a href="<%= @listing.url %>"><h4><%= @listing.title %></h4></a>
+          <%= @listing.description %>
+          <p><%= @listing.timestamp.strftime("Posted on %m/%d/%Y")  %></p>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>
