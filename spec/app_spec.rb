@@ -28,6 +28,17 @@ describe "App" do
     expect(LoomSearch.new({}).dedup(listings).count).to be 2
   end
 
+  it "identifies listings that contain words in the blacklist" do
+    search = LoomSearch.new(YAML.load(File.open("config/config.yml", "r")))
+    item1 = {description: "lloyd loom wicker armchair", title: "furniture"}
+    item2 = {title: "rainbow loom bands", description: "welp"}
+    item3 = {title: "macomber", description: "free and dreamy"}
+
+    expect(search.includes_excluded_terms?(item1)).to be true
+    expect(search.includes_excluded_terms?(item2)).to be true
+    expect(search.includes_excluded_terms?(item3)).to be false
+  end
+
   it "filters out irrelevant posts by keyword" do
     get "/"
     expect(last_response).to be_ok
