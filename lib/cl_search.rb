@@ -1,12 +1,14 @@
 require "simple-rss"
 require "net/http"
-require "pry"
 
-# search Craiglist for weaving looms near Chicago
-class LoomSearch
+# search Craiglist for anything you like
+class ClSearch
+  attr_accessor :category
+
   def initialize(config)
     @search_uris = config["search_uris"] || []
     @blacklist = config["excluded_terms"] || []
+    @category = config["category"] || ""
   end
 
   def get_all_nearby

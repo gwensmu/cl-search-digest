@@ -4,7 +4,7 @@
 
   <body>
     <div id="container" style="width:600px;margin:10px;">
-      <h3> <%= @listings.count %>  Weaving Posts Around Chicago Right Now </h3>
+      <h3> <%= @listings.count %> <%= @category %> Available Right Now </h3>
       <% for @listing in @listings %>
         <div>
           <a href="<%= @listing.url %>"><h4><%= @listing.title %></h4></a>

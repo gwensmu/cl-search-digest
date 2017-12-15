@@ -5,7 +5,7 @@ require "json"
 require "logger"
 require "yaml"
 
-require_relative "lib/loom_search"
+require_relative "lib/cl_search"
 
 configure do
   set :views, "#{File.dirname(__FILE__)}/views"
@@ -20,7 +20,8 @@ end
 set :show_exceptions, false
 
 get "/" do
-  search = LoomSearch.new(YAML.load(File.open("config/config.yml", "r")))
+  search = ClSearch.new(YAML.load(File.open("config/config.yml", "r")))
   @listings = search.get_all_nearby
+  @category = search.category
   erb :index
 end
