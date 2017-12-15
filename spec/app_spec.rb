@@ -32,7 +32,7 @@ describe "App" do
   end
 
   it "identifies listings that contain words in the blacklist" do
-    search = LoomSearch.new(YAML.load(File.open("config/config.yml", "r")))
+    search = LoomSearch.new(YAML.load(File.open("spec/config.yml", "r")))
     item1 = {description: "lloyd loom wicker armchair", title: "furniture"}
     item2 = {title: "rainbow loom bands", description: "welp"}
     item3 = {title: "macomber", description: "free and dreamy"}
