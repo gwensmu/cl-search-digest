@@ -5,8 +5,8 @@ require "pry"
 # search Craiglist for weaving looms near Chicago
 class LoomSearch
   def initialize(config)
-    @search_uris = config["search_uris"]
-    @blacklist = config["excluded_terms"]
+    @search_uris = config["search_uris"] || nil
+    @blacklist = config["excluded_terms"] || []
   end
 
   def get_all_nearby
