@@ -1,5 +1,8 @@
 ENV["RACK_ENV"] = "test"
 
+require 'simplecov'
+SimpleCov.start
+
 require_relative "../app"
 require "rspec"
 require "rack/test"
@@ -19,9 +22,25 @@ describe "App" do
     expect(last_response.body).to include("weaving loom")
   end
 
-  it "filters out duplicate postings on craigslist"
+  it "filters out duplicate postings on craigslist" do
+    listing1 = LoomSearch::Listing.new(title: "loom", description: "weaves fabric", dc_date: Date.today)
+    listing2 = LoomSearch::Listing.new(title: "loom", description: "weaves fabric", dc_date: Date.today)
+    listing3 = LoomSearch::Listing.new(title: "macomber", description: "36 harnesses", dc_date: Date.today)
 
-  it "concatenates the results from multiple searches"
+    listings = [listing1, listing2, listing3]
+    expect(LoomSearch.new({}).dedup(listings).count).to be 2
+  end
+
+  it "identifies listings that contain words in the blacklist" do
+    search = LoomSearch.new(YAML.load(File.open("spec/config.yml", "r")))
+    item1 = {description: "lloyd loom wicker armchair", title: "furniture"}
+    item2 = {title: "rainbow loom bands", description: "welp"}
+    item3 = {title: "macomber", description: "free and dreamy"}
+
+    expect(search.includes_excluded_terms?(item1)).to be true
+    expect(search.includes_excluded_terms?(item2)).to be true
+    expect(search.includes_excluded_terms?(item3)).to be false
+  end
 
   it "filters out irrelevant posts by keyword" do
     get "/"

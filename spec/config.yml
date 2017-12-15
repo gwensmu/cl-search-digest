@@ -1,0 +1,15 @@
+search_uris:
+
+excluded_terms:
+  - lloyd
+  - art deco
+  - american girl
+  - spark plug
+  - knitter
+  - fruit
+  - wire
+  - rainbow
+
+sender: test@test.com
+recipient: gwen.smuda@gmail.com
+delivery_method: sendmail

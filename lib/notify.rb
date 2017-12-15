@@ -2,12 +2,14 @@ require_relative "loom_search"
 require "erb"
 require "mail"
 
-class Notify
+class Notifier
+  attr_accessor :sender, :recipient
+
   def initialize(config)
     @listings = LoomSearch.new(config).get_all_nearby
     @sender = config["sender"]
     @recipient = config["recipient"]
-    @delivery_method = config["delivery_method"].to_sym
+    @delivery_method = config["delivery_method"].to_sym || :sendmail
   end
 
   def build_email_body

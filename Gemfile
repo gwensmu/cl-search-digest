@@ -17,4 +17,5 @@ group :test do
   gem "minitest"
   gem "pry"
   gem "rb-readline"
+  gem 'simplecov'
 end

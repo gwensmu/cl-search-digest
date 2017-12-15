@@ -4,4 +4,4 @@ require_relative "../lib/notify"
 path_to_config = File.join(File.dirname(__FILE__), "../config/config.yml")
 config = YAML.load(File.read(path_to_config))
 
-Notify.new(config).deliver
+Notifier.new(config).deliver
