@@ -2,7 +2,7 @@ require "optparse"
 require "yaml"
 require_relative "../lib/notify"
 
-options = {config: "config.yml"}
+options = {config: "default.yml"}
 OptionParser.new do |opts|
   opts.on("-config", "--config=drumconfig.yml", "path to config from config dir") do |c|
     options[:config] = c
