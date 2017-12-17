@@ -13,7 +13,8 @@ excluded_terms:
   - fruit
   - wire
   - rainbow
+  - mattress
 
-sender: glen.smuda@gmail.com
+sender: gwen.smuda@gmail.com
 recipient: gwen.smuda@gmail.com
-delivery_method: sendmail
+delivery_method: aws_ses

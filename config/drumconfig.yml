@@ -1,10 +1,10 @@
 category: Drum Heads
 search_uris:
-  - https://chicago.craigslist.org/search/sss?format=rss&query=drum+heads&sort=rel&hasPic=1&search_distance=200&postal=60626
+  - https://chicago.craigslist.org/search/sss?format=rss&query=remo+drum+heads&sort=rel&hasPic=1&search_distance=200&postal=60626
 
 excluded_terms:
   - antifreeze
 
-sender: glen.smuda@gmail.com
+sender: gwen.smuda@gmail.com
 recipient: gwen.smuda@gmail.com
 delivery_method: sendmail
