@@ -22,10 +22,10 @@ class Notifier
     body.encode("UTF-8", "binary", invalid: :replace, undef: :replace, replace: "")
   end
 
-  def deliver_via_sendmail(sender:"", recipient:"", body_html:"", subject_text:"")
+  def deliver_via_sendmail(body_html:"", subject_text:"")
     mail = Mail.new do
-      from    sender
-      to      recipient
+      from    @sender
+      to      @recipient
       subject subject_text
       html_part do
         content_type "text/html; charset=UTF-8"
@@ -37,11 +37,11 @@ class Notifier
     mail
   end
 
-  def deliver_via_aws_ses(sender:"", recipient:"", body_html:"", subject_text:"", client: nil)
+  def deliver_via_aws_ses(body_html:"", subject_text:"", client: nil)
     client = Aws::SES::Client.new(region: 'us-west-2') unless client
     resp = client.send_email({
       destination: {
-        to_addresses: [recipient],
+        to_addresses: [@recipient],
       },
       message: {
         body: {
@@ -55,24 +55,21 @@ class Notifier
           data: subject_text,
         },
       },
-      reply_to_addresses: [sender],
-      source: sender
+      reply_to_addresses: [@sender],
+      source: @sender
     })
     resp
   end
 
   def deliver(client: nil)
-    params = { sender: @sender,
-               recipient: @recipient,
-               body_html: build_email_body,
-               client: client,
-               subject_text: "#{@listings.count} #{@category} Available Right Now" }
+    params = { body_html: build_email_body,
+               subject_text: "#{@listings.count} #{@category} Available Right Now",
+               client: client }
     if @delivery_method == :sendmail
       resp = deliver_via_sendmail(params)
     else
       resp = deliver_via_aws_ses(params)
     end
-    puts resp
     resp
   end
 end
