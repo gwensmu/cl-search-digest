@@ -23,16 +23,16 @@ describe "App" do
   end
 
   it "filters out duplicate postings on craigslist" do
-    listing1 = LoomSearch::Listing.new(title: "loom", description: "weaves fabric", dc_date: Date.today)
-    listing2 = LoomSearch::Listing.new(title: "loom", description: "weaves fabric", dc_date: Date.today)
-    listing3 = LoomSearch::Listing.new(title: "macomber", description: "36 harnesses", dc_date: Date.today)
+    listing1 = ClSearch::Listing.new(title: "loom", description: "weaves fabric", dc_date: Date.today)
+    listing2 = ClSearch::Listing.new(title: "loom", description: "weaves fabric", dc_date: Date.today)
+    listing3 = ClSearch::Listing.new(title: "macomber", description: "36 harnesses", dc_date: Date.today)
 
     listings = [listing1, listing2, listing3]
-    expect(LoomSearch.new({}).dedup(listings).count).to be 2
+    expect(ClSearch.new({}).dedup(listings).count).to be 2
   end
 
   it "identifies listings that contain words in the blacklist" do
-    search = LoomSearch.new(YAML.load(File.open("spec/config.yml", "r")))
+    search = ClSearch.new(YAML.load(File.open("spec/config.yml", "r")))
     item1 = {description: "lloyd loom wicker armchair", title: "furniture"}
     item2 = {title: "rainbow loom bands", description: "welp"}
     item3 = {title: "macomber", description: "free and dreamy"}
