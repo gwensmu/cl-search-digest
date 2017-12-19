@@ -19,7 +19,19 @@ end
 set :show_exceptions, false
 
 get "/" do
-  search = ClSearch.new(YAML.load(File.open("config/config.yml", "r")))
+  search = ClSearch.new(YAML.load(File.open("config/default.yml", "r")))
+  @listings = search.get_all_nearby
+  @category = search.category
+  erb :index
+end
+
+get "/:name" do
+  config = "config/#{params[:name]}.yml"
+  begin
+    search = ClSearch.new(YAML.load(File.open(config, "r")))
+  rescue
+    search = ClSearch.new(YAML.load(File.open("config/default.yml", "r")))
+  end
   @listings = search.get_all_nearby
   @category = search.category
   erb :index
