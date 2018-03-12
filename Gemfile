@@ -17,6 +17,7 @@ group :test do
   gem "rspec-mocks"
   gem "minitest"
   gem "pry"
+  gem "rack-test"
   gem "rb-readline"
   gem 'simplecov'
 end
