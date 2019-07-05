@@ -1,7 +1,7 @@
 require "simple-rss"
 require "net/http"
 
-# search Craiglist for anything you like
+# Search Craiglist for anything you like
 class ClSearch
   attr_accessor :category
 

@@ -1,15 +1,16 @@
 source "https://rubygems.org"
 
-gem "sqlite3"
-gem "sinatra"
-gem "sequel"
-gem "sinatra-contrib"
 gem "simple-rss"
-gem "mail"
-gem 'aws-sdk', '~> 2'
 
 group :development do
   gem "foreman"
+  gem "sqlite3"
+  gem "sinatra"
+  gem "sequel"
+  gem "sinatra-contrib"
+  gem "simple-rss"
+  gem "mail"
+  gem 'aws-sdk', '~> 2'
 end
 
 group :test do

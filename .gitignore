@@ -1,2 +1,5 @@
 coverage/*
 *.db
+vendor/*
+*.zip
+.bundle

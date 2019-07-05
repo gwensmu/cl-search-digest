@@ -1,6 +1,7 @@
 require "optparse"
 require "yaml"
-require_relative "../lib/notify"
+require_relative "../lib/aws_notifier"
+require_relative "../lib/sendmail_notifier"
 
 options = {config: "default.yml"}
 OptionParser.new do |opts|
@@ -12,5 +13,9 @@ end.parse!
 path_to_config = File.join(File.dirname(__FILE__), "../config/#{options[:config]}")
 config = YAML.load(File.read(path_to_config))
 
-response = Notifier.new(config).deliver
+if config["delivery_method"] == "sendmail"
+  response = SendmailNotifier.new(config).deliver
+else
+  response = AwsNotifier.new(config).deliver
+end
 puts response
