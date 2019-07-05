@@ -7,4 +7,3 @@ excluded_terms:
 
 sender: gwen.smuda@gmail.com
 recipient: gwen.smuda@gmail.com
-delivery_method: aws_ses

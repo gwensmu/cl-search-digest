@@ -1,10 +1,3 @@
-# To run the webapp locally:
-
-        bundle exec rackup -p 3000
-
-        http://localhost:3000/drumheads -> uses named config if it exists
-        http://localhost:3000/ -> loads default config
-
 # To email yourself
 
     Install and configure sendmail on your host.
