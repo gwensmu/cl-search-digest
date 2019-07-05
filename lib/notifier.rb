@@ -11,7 +11,7 @@ class Notifier
     @sender = config["sender"]
     @recipient = config["recipient"]
     @body_html = build_email_body
-    @subject_text = "#{@listings.count} #{@category} Available Right Now"
+    @subject_text = "#{@listings.count} #{@category} New Looms Today"
   end
 
   def build_email_body

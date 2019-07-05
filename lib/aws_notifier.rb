@@ -5,6 +5,10 @@ class AwsNotifier < Notifier
   def deliver(client: nil)
     begin
       # todo: pull region from config
+      if @listings.empty?
+        puts "no new looms today: #{Date.today}"
+        return
+      end
       client ||= Aws::SES::Client.new(region: 'us-west-2')
       client.send_email({
         destination: {
