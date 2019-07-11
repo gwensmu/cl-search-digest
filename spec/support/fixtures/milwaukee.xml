@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:enc="http://purl.oclc.org/net/rss_2.0/enc#"
+ xmlns:ev="http://purl.org/rss/1.0/modules/event/"
+ xmlns:content="http://purl.org/rss/1.0/modules/content/"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+ xmlns:admin="http://webns.net/mvcb/"
+>
+
+<channel rdf:about="https://milwaukee.craigslist.org/search/sss?format=rss&#x26;hasPic=1&#x26;postal=53216&#x26;query=weaving&#x25;20&#x25;7C&#x25;20loom&#x25;20&#x25;7C&#x25;20macomber&#x25;20-lloyd&#x25;20-rainbow&#x25;20-fruit&#x26;search_distance=100&#x26;sort=rel&#x26;srchType=T">
+<title>craigslist milwaukee | for sale search "weaving | loom | macomber -lloyd -rainbow -fruit"</title>
+<link>https://milwaukee.craigslist.org/search/sss?hasPic=1&#x26;postal=53216&#x26;query=weaving&#x25;20&#x25;7C&#x25;20loom&#x25;20&#x25;7C&#x25;20macomber&#x25;20-lloyd&#x25;20-rainbow&#x25;20-fruit&#x26;search_distance=100&#x26;sort=rel&#x26;srchType=T</link>
+<description></description>
+<dc:language>en-us</dc:language>
+<dc:rights>copyright 2019 craigslist</dc:rights>
+<dc:publisher>robot@craigslist.org</dc:publisher>
+<dc:creator>robot@craigslist.org</dc:creator>
+<dc:source>https://milwaukee.craigslist.org/search/sss?format=rss&#x26;hasPic=1&#x26;postal=53216&#x26;query=weaving&#x25;20&#x25;7C&#x25;20loom&#x25;20&#x25;7C&#x25;20macomber&#x25;20-lloyd&#x25;20-rainbow&#x25;20-fruit&#x26;search_distance=100&#x26;sort=rel&#x26;srchType=T</dc:source>
+<dc:title>craigslist milwaukee | for sale search "weaving | loom | macomber -lloyd -rainbow -fruit"</dc:title>
+<dc:type>Collection</dc:type>
+<syn:updateBase>2019-07-10T20:00:54-05:00</syn:updateBase>
+<syn:updateFrequency>6</syn:updateFrequency>
+<syn:updatePeriod>hourly</syn:updatePeriod>
+<items>
+ <rdf:Seq>
+  <rdf:li rdf:resource="https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212324.html" />
+  <rdf:li rdf:resource="https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212334.html" />
+  <rdf:li rdf:resource="https://chicago.craigslist.org/wcl/art/d/montgomery-vintage-love-and-money-craft/6918738489.html" />
+  <rdf:li rdf:resource="https://chicago.craigslist.org/wcl/art/d/oak-park-retired-amer-girl-josephines/6929450639.html" />
+ </rdf:Seq>
+</items>
+</channel>
+<item rdf:about="https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212324.html">
+<title><![CDATA[Rag Rug Weaving Loom (78 n bryan St)]]></title>
+<link>https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212324.html</link>
+<description><![CDATA[Antique Union Loom No 36. This is a two-harness rug loom that can weave up to 36″ wide rugs. 
+Lovingly rehabbed with brand new heddles, reeds and warp (already warped and ready to go!). 
+Includes shuttles &amp; instruction book. 
+Local pick up only]]></description>
+<dc:date>2019-07-10T17:35:09-05:00</dc:date>
+<dc:language>en-us</dc:language>
+<dc:rights>copyright 2019 craigslist</dc:rights>
+<dc:source>https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212334.html</dc:source>
+<dc:title><![CDATA[Rag Rug Weaving Loom (78 n bryan St)]]></dc:title>
+<dc:type>text</dc:type>
+<enc:enclosure resource="https://images.craigslist.org/00Y0Y_4H8xDMkkMyc_300x300.jpg" type="image/jpeg"/>
+<dcterms:issued>2019-07-10T17:35:09-05:00</dcterms:issued>
+</item>
+<item rdf:about="https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212324.html">
+<title><![CDATA[Rag Rug Weaving Loom (78 n bryan St)]]></title>
+<link>https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212324.html</link>
+<description><![CDATA[Antique Union Loom No 36. This is a two-harness rug loom that can weave up to 36″ wide rugs. 
+Lovingly rehabbed with brand new heddles, reeds and warp (already warped and ready to go!). 
+Includes shuttles &amp; instruction book. 
+Local pick up only]]></description>
+<dc:date>2019-07-10T17:35:09-05:00</dc:date>
+<dc:language>en-us</dc:language>
+<dc:rights>copyright 2019 craigslist</dc:rights>
+<dc:source>https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212324.html</dc:source>
+<dc:title><![CDATA[Rag Rug Weaving Loom (78 n bryan St) &#x0024;500]]></dc:title>
+<dc:type>text</dc:type>
+<enc:enclosure resource="https://images.craigslist.org/00Y0Y_4H8xDMkkMyc_300x300.jpg" type="image/jpeg"/>
+<dcterms:issued>2019-07-10T17:35:09-05:00</dcterms:issued>
+</item>
+<item rdf:about="https://chicago.craigslist.org/wcl/art/d/montgomery-vintage-love-and-money-craft/6918738489.html">
+<title><![CDATA[Vintage Love and Money Craft Weaving Loom NEW (Oswego) &#x0024;25]]></title>
+<link>https://chicago.craigslist.org/wcl/art/d/montgomery-vintage-love-and-money-craft/6918738489.html</link>
+<description><![CDATA[This is a Vintage Love and Money Craft Loom, 1983 by John Allan. 
+It comes COMPLETE: Original Box, Loom, Instruction Book, Shuttle, Hexagon Loom Pattern Book. 
+Everything is in excellent, never used, condition. 
+PLEASE DO NOT TEXT ME TO ASK IF ITEM I ...]]></description>
+<dc:date>2019-07-09T11:29:58-05:00</dc:date>
+<dc:language>en-us</dc:language>
+<dc:rights>copyright 2019 craigslist</dc:rights>
+<dc:source>https://chicago.craigslist.org/wcl/art/d/montgomery-vintage-love-and-money-craft/6918738489.html</dc:source>
+<dc:title><![CDATA[Vintage Love and Money Craft Weaving Loom NEW (Oswego) &#x0024;25]]></dc:title>
+<dc:type>text</dc:type>
+<enc:enclosure resource="https://images.craigslist.org/00F0F_3wmdVJe0V5c_300x300.jpg" type="image/jpeg"/>
+<dcterms:issued>2019-07-09T11:29:58-05:00</dcterms:issued>
+</item>
+<item rdf:about="https://chicago.craigslist.org/wcl/art/d/oak-park-retired-amer-girl-josephines/6929450639.html">
+<title><![CDATA[Retired Amer. Girl-Josephine's Navaho Weaving Loom Kit, plus xtra warp (Oak Park) &#x0024;45]]></title>
+<link>https://chicago.craigslist.org/wcl/art/d/oak-park-retired-amer-girl-josephines/6929450639.html</link>
+<description><![CDATA[Retired American Girl-Josephina's Navaho Weaving Loom Kit, plus Replacement Warp 
+$45 
+Used-Great condition: 
+lloyd
+Clamp &amp; Fork 
+Shuttle &amp; Needle 
+Yarn in 4 different colors: red, white, blue, and brown 
+Instructional bo ...]]></description>
+<dc:date>2019-07-08T15:39:36-05:00</dc:date>
+<dc:language>en-us</dc:language>
+<dc:rights>copyright 2019 craigslist</dc:rights>
+<dc:source>https://chicago.craigslist.org/wcl/art/d/oak-park-retired-amer-girl-josephines/6929450639.html</dc:source>
+<dc:title><![CDATA[Retired Amer. Girl-Josephine's Navaho Weaving Loom Kit, plus xtra warp (Oak Park) &#x0024;45]]></dc:title>
+<dc:type>text</dc:type>
+<enc:enclosure resource="https://images.craigslist.org/00r0r_c6DoZ7a9621_300x300.jpg" type="image/jpeg"/>
+<dcterms:issued>2019-07-08T15:39:36-05:00</dcterms:issued>
+</item>
+</rdf:RDF>

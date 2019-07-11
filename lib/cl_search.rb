@@ -1,7 +1,7 @@
 require "simple-rss"
 require "net/http"
 
-# Search Craiglist for anything you like
+# Search Craiglist and return deduped, filtered listings
 class ClSearch
   attr_accessor :category
 
@@ -11,7 +11,7 @@ class ClSearch
     @category = config["category"] || ""
   end
 
-  def get_all_nearby
+  def call
     listings = []
     @search_uris.each do |search|
       uri = URI(search)

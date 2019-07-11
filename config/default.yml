@@ -2,7 +2,7 @@ category: Weaving Looms
 search_uris:
   - https://milwaukee.craigslist.org/search/sss?format=rss&query=weaving+%7C+loom+%7C+macomber+-lloyd+-rainbow+-fruit&sort=rel&srchType=T&hasPic=1&search_distance=100&postal=53216&postedToday=1
   - https://grandrapids.craigslist.org/search/sss?format=rss&query=weaving+%7C+loom+%7C+macomber+-lloyd+-rainbow+-fruit&sort=rel&srchType=T&hasPic=1&search_distance=100&postal=49646&postedToday=1
-  - https://swmi.craigslist.org/search/sss?format=rss&query=weaving+%7C+loom+%7C+macomber+-lloyd+-rainbow+-fruit&sort=rel&srchType=T&hasPic=1&search_distance=200&postal=60641&postedToday=1
+  - https://chicago.craigslist.org/search/sss?format=rss&query=weaving+%7C+loom+%7C+macomber+-lloyd+-rainbow+-fruit&sort=rel&srchType=T&hasPic=1&search_distance=200&postal=60641&postedToday=1
 
 excluded_terms:
   - lloyd

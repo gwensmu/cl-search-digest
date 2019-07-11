@@ -1,24 +1,28 @@
 require 'simplecov'
 SimpleCov.start
 
+require 'spec_helper'
 require_relative "../lib/notifier"
 require "rspec"
-
-notifier = Notifier.new(YAML.load(File.open("spec/config.yml", "r")))
+require "yaml"
 
 describe "Notifier" do
+  notifier = Notifier.new(YAML.load(File.open("spec/config.yml", "r")))
+
   it "initalizes a Notifier object from config" do
     expect(notifier.sender).to eq "test@test.com"
+    expect(notifier.recipient).to eq "gwen.smuda@gmail.com"
+  end
+
+  it "will search Craigslist" do
+    expect(notifier.listings).not_to be_empty
   end
 
   it "will send via SES" do
-    notifier.delivery_method = :aws_ses
-
     ses = Aws::SES::Client.new
     ses.stub_data(:send_email)
 
-    expect(notifier).not_to receive(:deliver_via_sendmail)
-    expect(notifier).to receive(:deliver_via_aws_ses)
+    expect(notifier).to receive(:deliver)
     notifier.deliver(client: ses)
   end
 end

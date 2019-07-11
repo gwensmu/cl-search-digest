@@ -1,17 +1,18 @@
 require "erb"
+require "aws-sdk"
 require_relative "cl_search"
 
 class Notifier
-  attr_accessor :sender, :recipient
+  attr_accessor :sender, :recipient, :listings
 
   def initialize(config)
     search = ClSearch.new(config)
-    @listings = search.get_all_nearby
+    @listings = search.call
     @category = search.category
     @sender = config["sender"]
     @recipient = config["recipient"]
-    @body_html = build_email_body
-    @subject_text = "#{@listings.count} #{@category} New Looms Today"
+    @body_html = build_email_body if @listings.any?
+    @subject_text = "#{@listings.count} New #{@category} Today"
   end
 
   def build_email_body
@@ -23,11 +24,11 @@ class Notifier
 
   def deliver(client: nil)
     begin
-      # todo: pull region from config
       if @listings.empty?
-        puts "no new looms today: #{Date.today}"
+        puts "no new #{@category} today: #{Date.today}"
         return
       end
+      # todo: pull region from env vars
       client ||= Aws::SES::Client.new(region: 'us-west-2')
       client.send_email({
         destination: {
