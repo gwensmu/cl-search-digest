@@ -1,16 +1,18 @@
-require "optparse"
-require "yaml"
-require_relative "../lib/notifier"
+# frozen_string_literal: true
 
-options = {config: "default.yml"}
+require 'optparse'
+require 'yaml'
+require_relative '../lib/notifier'
+
+options = { config: 'default.yml' }
 OptionParser.new do |opts|
-  opts.on("-config", "--config=drumconfig.yml", "path to config from config dir") do |c|
+  opts.on('-config', '--config=config.yml', 'config filename') do |c|
     options[:config] = c
   end
 end.parse!
 
-path_to_config = File.join(File.dirname(__FILE__), "../config/#{options[:config]}")
-config = YAML.load(File.read(path_to_config))
+config_path = File.join(File.dirname(__FILE__), "../config/#{options[:config]}")
+config = YAML.safe_load(File.read(config_path))
 
 response = Notifier.new(config).deliver
 puts response

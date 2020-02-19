@@ -1,14 +1,16 @@
-require "simple-rss"
-require "net/http"
+# frozen_string_literal: true
+
+require 'simple-rss'
+require 'net/http'
 
 # Search Craiglist and return deduped, filtered listings
 class ClSearch
   attr_accessor :category
 
   def initialize(config)
-    @search_uris = config["search_uris"] || []
-    @blacklist = config["excluded_terms"] || []
-    @category = config["category"] || ""
+    @search_uris = config['search_uris'] || []
+    @blacklist = config['excluded_terms'] || []
+    @category = config['category'] || ''
   end
 
   def call
@@ -27,8 +29,8 @@ class ClSearch
 
   def dedup(listings)
     listings
-      .uniq { |l| [ l.description, l.title ] }
-      .sort_by! {|l| l.timestamp }.reverse
+      .uniq { |l| [l.description, l.title] }
+      .sort_by!(&:timestamp).reverse
   end
 
   def includes_excluded_terms?(item)
@@ -36,6 +38,7 @@ class ClSearch
       @blacklist.any? { |phrase| item[:title].downcase.include?(phrase) }
   end
 
+  # A posting on Craigslist
   class Listing
     attr_accessor :title, :description, :images, :timestamp, :url
 
