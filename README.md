@@ -1,4 +1,4 @@
-A replacement for IFTTTs defunct "classifieds" feature.
+This tool will search Craigslist using a configured query and send an email digest of the results. It is a replacement for IFTTTs defunct "classifieds" feature. This tool is designed to run as a Lambda in AWS on a cron schedule.
 
 ## Local development:
 
