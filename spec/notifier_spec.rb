@@ -21,7 +21,7 @@ describe 'Notifier' do
   end
 
   it 'will send via SES' do
-    ses = Aws::SES::Client.new
+    ses = Aws::SES::Client.new(region: "us-west-2")
     ses.stub_data(:send_email)
 
     expect(notifier).to receive(:deliver)
