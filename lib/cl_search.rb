@@ -33,9 +33,11 @@ class ClSearch
       .sort_by!(&:timestamp).reverse
   end
 
+  # todo: use benchmark to explore if this is better performance
   def includes_excluded_terms?(item)
-    @blacklist.any? { |phrase| item[:description].downcase.include?(phrase) } ||
-      @blacklist.any? { |phrase| item[:title].downcase.include?(phrase) }
+    title_plus_description = item[:description] + item[:title]
+    listing_terms = Set.new(title_plus_description.split(" "))
+    listing_terms.intersect? Set.new(@blacklist)
   end
 
   # A posting on Craigslist
