@@ -9,13 +9,15 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(:any, /milwaukee.craigslist.org/).to_rack(MockList)
 
-    stub_request(:get, "http://169.254.169.254/latest/meta-data/iam/security-credentials/").
-    with(
-      headers: {
-      'Accept'=>'*/*',
-      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-      'User-Agent'=>'Ruby'
-      }).
-    to_return(status: 200, body: "", headers: {})
+    # Stub metadata requests to AWS so tests pass in CI
+    stub_request(:get, 'http://169.254.169.254/latest/meta-data/iam/security-credentials/')
+      .with(
+        headers: {
+          'Accept' => '*/*',
+          'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent' => 'Ruby'
+        }
+      )
+      .to_return(status: 200, body: '', headers: {})
   end
 end
