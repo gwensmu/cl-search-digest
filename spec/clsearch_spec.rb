@@ -25,10 +25,5 @@ describe 'ClSearch' do
     expect(results.count).to eq 2
   end
 
-  it 'will filter listings with excluded terms' do
-    search = ClSearch.new(YAML.safe_load(File.open('spec/config.yml', 'r')))
-    results = search.call
-
-    expect(results.map(&:description)).not_to include 'lloyd'
-  end
+  it 'will build a URI from config'
 end

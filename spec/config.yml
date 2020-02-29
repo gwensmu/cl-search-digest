@@ -1,7 +1,10 @@
-search_uris:
-  - https://milwaukee.craigslist.org/search/sss?format=rss&query=weaving+%7C+loom
 excluded_terms:
   - lloyd
+cities:
+  - milwaukee
+search_terms:
+  - red
+  - wig
 
 sender: test@test.com
 recipient: gwen.smuda@gmail.com
