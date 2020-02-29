@@ -9,8 +9,11 @@ require 'rspec'
 require 'yaml'
 
 describe 'ClSearch' do
+  let(:search) do
+    ClSearch.new(YAML.safe_load(File.open('spec/config.yml', 'r')))
+  end
+
   it 'will parse RSS results from search' do
-    search = ClSearch.new(YAML.safe_load(File.open('spec/config.yml', 'r')))
     results = search.call.first
     expect(results.title).to eq 'Rag Rug Weaving Loom (78 n bryan St)'
     expect(results.url).to eq 'https://madison.craigslist.org/art/d/madison-rag-rug-weaving-loom/6914212324.html'
@@ -19,11 +22,12 @@ describe 'ClSearch' do
   end
 
   it 'will dedup search results' do
-    search = ClSearch.new(YAML.safe_load(File.open('spec/config.yml', 'r')))
     results = search.call
-
     expect(results.count).to eq 2
   end
 
-  it 'will build a URI from config'
+  it 'will build a collection URIs from config' do
+    expect(search.search_uris).to be_a(Array)
+    expect(search.search_uris.first).to eq 'https://milwaukee.craigslist.org/search/sss?format=rss&query=red+%7C+wig+-lloyd&sort=rel&srchType=T&hasPic=1&search_distance=200&postal=60641&postedToday=1'
+  end
 end

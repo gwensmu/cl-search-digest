@@ -37,25 +37,23 @@ class Notifier
     end
     # TODO: pull region from env vars
     client ||= Aws::SES::Client.new(region: 'us-west-2')
-    client.send_email({
-                        destination: {
-                          to_addresses: [@recipient]
-                        },
-                        message: {
-                          body: {
-                            html: {
-                              charset: 'UTF-8',
-                              data: @body_html
-                            }
-                          },
-                          subject: {
+    client.send_email(destination: {
+                        to_addresses: [@recipient]
+                      },
+                      message: {
+                        body: {
+                          html: {
                             charset: 'UTF-8',
-                            data: @subject_text
+                            data: @body_html
                           }
                         },
-                        reply_to_addresses: [@sender],
-                        source: @sender
-                      })
+                        subject: {
+                          charset: 'UTF-8',
+                          data: @subject_text
+                        }
+                      },
+                      reply_to_addresses: [@sender],
+                      source: @sender)
   rescue Aws::SES::Errors::ServiceError => e
     puts "Email not sent. Error message: #{e}"
   end
