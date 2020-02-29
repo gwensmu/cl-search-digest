@@ -8,8 +8,8 @@ class ClSearch
   attr_accessor :category
 
   def initialize(config)
-    @search_uris = config['search_uris'] || []
-    @blacklist = config['excluded_terms'] || []
+    @config = config
+    @search_uris = build_search_uris(config["cities"]) || []
     @category = config['category'] || ''
   end
 
@@ -21,7 +21,7 @@ class ClSearch
 
       rss = SimpleRSS.parse response
       rss.entries.each do |entry|
-        listings << Listing.new(entry) unless includes_excluded_terms?(entry)
+        listings << Listing.new(entry)
       end
     end
     dedup(listings)
@@ -33,11 +33,17 @@ class ClSearch
       .sort_by!(&:timestamp).reverse
   end
 
-  # todo: use benchmark to explore if this is better performance
-  def includes_excluded_terms?(item)
-    title_plus_description = item[:description] + item[:title]
-    listing_terms = Set.new(title_plus_description.split(" "))
-    listing_terms.intersect? Set.new(@blacklist)
+  def build_search_uri(city)
+    search_terms = @config['search_terms'].join("+%7C+")
+    #todo handle prepending the "+-" on excluded terms only if they exist
+    excluded_terms = @config['excluded_terms'].join("+-").gsub(" ", "%7C")
+    zip = @config["zip"] ||= "60641"
+    radius = @config["search_radius"] ||= 200
+    "https://#{city}.craigslist.org/search/sss?format=rss&query=#{search_terms}+-#{excluded_terms}&sort=rel&srchType=T&hasPic=1&search_distance=#{radius}&postal=#{zip}&postedToday=1"
+  end
+
+  def build_search_uris(cities)
+    cities.map { |city| build_search_uri(city) }
   end
 
   # A posting on Craigslist
