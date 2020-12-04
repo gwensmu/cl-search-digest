@@ -1,4 +1,8 @@
-This tool will search Craigslist using a configured query and send an email digest of the results. It is a replacement for IFTTTs defunct "classifieds" feature. This tool is designed to run as a Lambda in AWS on a cron schedule.
+Craigslist removed its RSS feeds, RIP RSS
+
+# What was this
+
+This tool used to search Craigslist using a configured query and send an email digest of the results. It was a replacement for IFTTTs defunct "classifieds" feature. This tool was designed to run as a Lambda in AWS on a cron schedule via EventBridge.
 
 ## Local development:
 
